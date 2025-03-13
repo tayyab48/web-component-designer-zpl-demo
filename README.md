@@ -27,6 +27,7 @@ https://node-projects.github.io/web-component-designer-zpl-demo/index.html
 
   * Run the app in a local server
 ```
+  $ npm run start
   $ polymer serve --port 8000 --open
 ```
 
