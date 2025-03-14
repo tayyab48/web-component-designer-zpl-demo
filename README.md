@@ -1,34 +1,39 @@
-# web-component-designer-zpl-demo
-
-Demonstration Project using https://github.com/node-projects/web-component-designer
-
-## url of demo project
-
-https://node-projects.github.io/web-component-designer-zpl-demo/index.html
-
 ## Developing
 
   * Install dependencies
 ```
   $ npm install
 ```
-
-  * Install dependencies of designer component and build it (as long is not yet a npm package)
-```
-  $ cd node_modules/@node-projects/web-component-designer
-  $ npm install
-  $ ./node_modules/.bin/tsc
-```
-
-  * Compile Typescript after doing changes
-```
-  $ npm run build
-```
-
   * Run the app in a local server
-```
-  $ npm run start
-  $ polymer serve --port 8000 --open
+``` 
+ $ npm run start
 ```
 
-  * Navigate Chrome to [localhost:8000]() to see the app.
+* Build the Project: Compile the TypeScript files and prepare the build directory.
+
+```
+npx tsc
+```
+* Copy Necessary Files: Copy the required files to the build directory.
+```
+npx copyfiles --verbose "node_modules/**/*.js" build/default
+npx copyfiles --verbose "node_modules/**/*.json" build/default
+npx copyfiles --verbose "dist/**/*.js" build/default
+npx copyfiles --verbose "dist/**/*.json" build/default
+npx copyfiles --verbose "*.html" build/default
+npx copyfiles --verbose "node_modules/**/*.css" build/default
+npx copyfiles --verbose "node_modules/**/*.png" build/default
+npx copyfiles --verbose "node_modules/**/*.svg" build/default
+npx copyfiles --verbose "node_modules/**/*.gif" build/default
+npx copyfiles --verbose "node_modules/**/*.jpg" build/default
+npx copyfiles --verbose "node_modules/**/*.woff" build/default
+npx copyfiles --verbose "node_modules/**/*.ttf" build/default
+npx copyfiles --verbose "assets/**/*.png" build/default
+npx copyfiles --verbose "assets/**/*.svg" build/default
+npx copyfiles --verbose "assets/**/*.css" build/default
+npx copyfiles --verbose "*.json" build/default
+
+```
+
+* Upload to S3
+# Upload build/default to s3
